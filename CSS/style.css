@@ -209,15 +209,34 @@ p{
      transform: rotateY(0);
  }
 
- .card:hover .card-back {
+ .card.visible .card-back {
      transform: rotateY(-180deg);
  }
 
- .card:hover .card-front {
+ .card.visible .card-front {
      transform: rotateY(0);
  }
 
+ .card:hover .card-front .card-value {
+     animation: blink 4s infinite 500ms;
+ }
 
+@keyframes blink {
+    0% {
+        background-color: green;
+    }
+
+    25% {
+        background-color: yellow;
+    }
+
+    50% {
+        background-color: green;
+    }
+
+    100% {
+        background-color: yellow;
+    }
 
 footer{
     background-color: red;
