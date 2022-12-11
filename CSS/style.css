@@ -15,7 +15,7 @@ html {
 
 .overlay-text {
     /* background-color: rgba(255, 0, 0, 0.441); */
-    color:#f6e5af;
+    color: red;
     font-family: inherit;
     font-size: 4rem;
     top: 0;
@@ -28,7 +28,7 @@ html {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    font-family: Creepy, serif;
+    font-family: 'Fredoka One', cursive;
     transition: background-color 500ms, font-size 500ms;
 }
 
@@ -39,7 +39,9 @@ html {
 .overlay-text.visible {
     display: flex;
     animation: overlay-grow 500ms forwards;
-}
+  
+    }
+
 
 button{
         background-color: red;
@@ -67,6 +69,7 @@ body{
 
 header{
     display: flex;
+    flex-wrap: wrap;
     padding: 50px;
     justify-content: center;
     justify-items: center;
@@ -129,7 +132,7 @@ p{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     grid-template-rows: repeat(4, auto);
-    grid-gap: 10px;
+    grid-row-gap: 10px;
     justify-content: center;
     justify-items: center;
     overflow-x: hidden;
@@ -143,7 +146,7 @@ p{
     border:  rgb(252, 240, 13) solid 5px;
     height: 145px;
     position: relative;
-    width: 325px;
+    width: 355px;
 }
 
 .blue{
@@ -237,6 +240,21 @@ p{
     100% {
         background-color: yellow;
     }
+}
+
+@keyframes overlay-grow {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+        font-size: 0;
+    }
+
+    to {
+        background-color: rgba(245, 255, 169, 0.836);
+        font-size: 5vw;
+    }
+}
+
+
 
 footer{
     background-color: red;
