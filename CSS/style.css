@@ -217,8 +217,8 @@ p{
      transform: rotateY(0);
  }
 
- .card:hover .card-front .card-value {
-     animation: blink 4s infinite 500ms;
+ .card.matched .card-front{
+     animation: blink 4s linear infinite 500ms;
  }
 
 @keyframes blink {
