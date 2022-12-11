@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@100;200;400;500;600&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
+html {
+    min-height: 100vh;
+    
+}
+
+.overlay-text {
+    /* background-color: rgba(255, 0, 0, 0.441); */
+    color:#f6e5af;
+    font-family: inherit;
+    font-size: 4rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    display: none;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: Creepy, serif;
+    transition: background-color 500ms, font-size 500ms;
+}
+
+.overlay-text-small {
+    font-size: .3em;
+}
+
+.overlay-text.visible {
+    display: flex;
+    animation: overlay-grow 500ms forwards;
+}
+
+button{
+        background-color: red;
+        color: white;
+        border: 0.4px solid yellow;
+        font-family: inherit;
+        font-size: 1.3rem;
+        margin: 2rem;
+        padding: 1rem;
+        transition-duration: 0.4s;
+    }
+
+    button:hover {
+        background-color: #f44336c1;
+        border: black;
+        color: white;
+    }
+
+
+body{
+    background-color: #0000ff;
+    color: white;
+    
+}
+
+header{
+    display: flex;
+    padding: 50px;
+    justify-content: center;
+    justify-items: center;
+}
+
+#heading{
+   margin-left: auto;
+    
+}
+
+h1{
+font-family: 'Fredoka One', cursive;
+text-align: center;
+font-size: 3rem;
+}
+
+#directions{
+    text-align: center;
+}
+
+p{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+}
+
+#nav{
+    margin-left: auto;
+}
+
+.game-info{
+    
+    font-size: 2rem;
+   
+    
+}
+
+ .game-info-container {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.time{
+    display: flex;
+    margin: auto;
+   
+}
+
+.flips{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    margin: 2rem;
+} 
+
+.game-container {
+    margin:  auto;
+    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-rows: repeat(4, auto);
+    grid-gap: 10px;
+    justify-content: center;
+    justify-items: center;
+    overflow-x: hidden;
+    padding-bottom: 2rem;
+    perspective: 500px;
+}
+
+.card {
+  
+    background-color: #E4000F;
+    border:  rgb(252, 240, 13) solid 5px;
+    height: 145px;
+    position: relative;
+    width: 325px;
+}
+
+.blue{
+    background-color: #0CA6F5;
+}
+
+.yellow{
+    background-color: #F6BE00;
+}
+
+.black{
+    background-color: black;
+}
+
+.card-face {
+    position: absolute;
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    border-width: 1px;
+    border-style: solid;
+
+    transition: transform 500ms ease-in-out;
+    backface-visibility: hidden; 
+}
+
+.front-image{
+    width: 100%;
+    transition: transform 100ms ease-in-out;
+    transform: translateY(-10px);
+}
+
+.back-image{
+    width: 50%;
+   height: 100%;
+}
+.back-image2{
+    width: 100%;
+   
+}
+
+.back-image3{
+    width: 900%;
+    height: 90%;
+}
+
+ .card-back:hover .front-image {
+     transform: translateY(0);
+ }
+
+ .card-front {
+     background-color: whitesmoke;
+    
+     transform: rotateY(180deg);
+ }
+
+
+ .card-back {
+    width: 100%;
+     transform: rotateY(0);
+ }
+
+ .card:hover .card-back {
+     transform: rotateY(-180deg);
+ }
+
+ .card:hover .card-front {
+     transform: rotateY(0);
+ }
+
+
+
+footer{
+    background-color: red;
+    bottom: 0;
+    color: white;
+    outline: black 1rem;
+    margin-top: 2rem;
+    padding: 1rem;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+}
+

@@ -1,0 +1,210 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <header>
+        <div id="heading">
+        <h1>Find-That-Match</h1>
+        <p id="directions">Click to flip the cards. Find all the matches, before time runs out!</p>
+   </div>
+<div id="nav">
+<i class="fa-solid fa-circle-half-stroke fa-lg"></i>
+    <button> Contact Us</button>
+</div>
+</header>
+
+<div class="overlay-text ">
+    <button class="start">CLICK TO START</button>
+</div>
+<div id="game-over-text" class="overlay-text">
+    GAME OVER
+    <span class="overlay-text-small">Click to Restart</span>
+</div>
+<div id="victory-text" class="overlay-text">
+    VICTORY
+    <span class="overlay-text-small">Click to Restart</span>
+</div>
+
+<main class="game-container">
+
+    <!-- Counters and Measures -->
+    
+    <div class="game-info-container">
+        <div class="game-info time">
+           <p> Time <span id="time-remaining">100</span></p>
+        </div>
+        <div class="game-info flips">
+           <p> Flips <span id="flips">0</span></p>
+        </div>
+    </div>
+    <div class="card ">
+        <div class="card-back card-face">
+            <img class="front-image" src="./CSS/Assets/Perscholaslogo.jpeg">
+            
+        </div>
+        <div class="card-front card-face">
+<img class="back-image" src="./CSS/Assets/html.png" alt="html-logo">
+    </div>
+    </div>
+    <div class="card visible">
+        <div class="card-back card-face blue">
+            <img class="front-image" src="./CSS/Assets/Perscholaslogo.jpeg">
+            
+        </div>
+        <div class="card-front card-face">
+            <img class="back-image" src="./CSS/Assets/Javascript.PNG" alt="Javascript">
+
+    </div>
+    </div>
+    <div class="card visible">
+        <div class="card-back card-face yellow">
+            <img class="front-image" src="./CSS/Assets/Perscholaslogo.jpeg">
+            
+        </div>
+        <div class="card-front card-face">
+<img src="./CSS/Assets/react.PNG" alt="" class="back-image">
+    </div>
+    </div>
+    <div class="card visible">
+        <div class="card-back card-face black">
+            <img class="front-image" src="./CSS/Assets/Perscholaslogo.jpeg">
+            
+        </div>
+        <div class="card-front card-face">
+<img class="back-image" src="./CSS/Assets/css.PNG" alt="">
+    </div>
+    </div>
+    <div class="card visible">
+        <div class="card-back card-face">
+            <img class="front-image" src="./CSS/Assets/Perscholaslogo.jpeg">
+            
+        </div>
+        <div class="card-front card-face">
+<img src="./CSS/Assets/git.PNG" alt="git" class="back-image2">
+    </div>
+    </div>
+    <div class="card visible">
+        <div class="card-back card-face blue">
+            <img class="front-image" src="./CSS/Assets/Perscholaslogo.jpeg">
+            
+        </div>
+        <div class="card-front card-face">
+<img class="back-image2" src="./CSS/Assets/mern.png" alt="">
+    </div>
+    </div>
+    <div class="card visible">
+        <div class="card-back card-face yellow">
+            <img class="front-image" src="./CSS/Assets/Perscholaslogo.jpeg">
+            
+        </div>
+        <div class="card-front card-face">
+   <img src="./CSS/Assets/github.PNG" alt="" class="back-image3">
+        </div>
+    </div>
+    <div class="card visible">
+        <div class="card-back card-face black">
+            <img class="front-image" src="./CSS/Assets/Perscholaslogo.jpeg">
+            
+        </div>
+        <div class="card-front card-face">
+<img src="./CSS/Assets/Javascript.PNG" alt="" class="back-image">
+    </div>
+    </div>
+    <div class="card visible">
+        <div class="card-back card-face">
+            <img class="front-image" src="./CSS/Assets/Perscholaslogo.jpeg">
+            
+        </div>
+        <div class="card-front card-face">
+<img src="./CSS/Assets/github.PNG" alt="github" class="back-image3">
+    </div>
+    </div>
+    <div class="card visible">
+        <div class="card-back card-face blue">
+            <img class="front-image" src="./CSS/Assets/Perscholaslogo.jpeg">
+            
+        </div>
+        <div class="card-front card-face">
+            <img src="./CSS/Assets/git.PNG" alt="" class="back-image2">
+    </div>
+    </div>
+    <div class="card visible">
+        <div class="card-back card-face yellow">
+            <img class="front-image" src="./CSS/Assets/Perscholaslogo.jpeg">
+            
+        </div>
+        <div class="card-front card-face">
+<img src="./CSS/Assets/node.jpeg" alt="node" class="back-image">
+    </div>
+    </div>
+    <div class="card visible">
+        <div class="card-back card-face black">
+            <img class="front-image" src="./CSS/Assets/Perscholaslogo.jpeg">
+            
+        </div>
+        <div class="card-front card-face">
+<img src="./CSS/Assets/node.jpeg" alt="" class="back-image">
+    </div>
+    </div>
+    <div class="card visible">
+        <div class="card-back card-face">
+            <img class="front-image" src="./CSS/Assets/Perscholaslogo.jpeg">
+            
+        </div>
+        <div class="card-front card-face">
+<img src="./CSS/Assets/css.PNG" alt="css" class="back-image">
+    </div>
+    </div>
+    <div class="card visible">
+        <div class="card-back card-face blue">
+            <img class="front-image" src="./CSS/Assets/Perscholaslogo.jpeg">
+            
+        </div>
+        <div class="card-front card-face">
+<img src="./CSS/Assets/html.png" alt="html" class="back-image">
+    </div>
+    </div>
+    <div class="card visible">
+        <div class="card-back card-face yellow">
+            <img class="front-image" src="./CSS/Assets/Perscholaslogo.jpeg">
+            
+        </div>
+        <div class="card-front card-face">
+<img class="back-image" src="./CSS/Assets/react.PNG" alt="react">
+    </div>
+    </div>
+    <div class="card visible ">
+        <div class="card-back card-face black visable">
+            <img class="front-image" src="./CSS/Assets/Perscholaslogo.jpeg">
+            
+        </div>
+        <div class="card-front card-face ">
+        <img class="back-image2" src="./CSS/Assets/mern.png" alt="mern-stack">
+    </div>
+    </div>
+
+
+   
+
+
+
+
+</main>
+
+
+
+
+<footer>
+    Copyright &copy 2022
+</footer>
+    
+</body>
+
+<script src="https://kit.fontawesome.com/0b84935854.js" crossorigin="anonymous"></script>
+</html>
