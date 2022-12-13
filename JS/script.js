@@ -85,8 +85,8 @@ function unflipCards() {
 
 
 function checkForMatch() {
-  let image = data.image
- let isMatch = firstCard.image == secondCard.image;
+  
+ let isMatch = firstCard === secondCard;
 
   isMatch ? disableCards() : unflipCards();
 }
