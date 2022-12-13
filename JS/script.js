@@ -1,14 +1,21 @@
+let cards = document.querySelectorAll('.card')
 // starting parameters
 // Cards Array, timer
 
-let cards = document.querySelectorAll('.card')
 let t = document.getElementById('time-remaining');
+let num = 60;
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 
+
 // console.log(cards)
 
+
+function resetBoard() {
+  [hasFlippedCard, lockBoard] = [false, false];
+  [firstCard, secondCard] = [null, null];
+}
 
 // shuffle cards
     
@@ -46,8 +53,9 @@ const gamestart = () => {
             // delay timer until after overlay disappears
             setTimeout(timer, 2000);
             // reset timer
-            t.innerText = 10
+            t.innerText = num
             // reset flips
+          resetBoard()
             // reset matches
         })
     })
@@ -56,17 +64,62 @@ const gamestart = () => {
 
 gamestart()
 
+function disableCards() {
+  firstCard.removeEventListener('click', flipCard);
+  secondCard.removeEventListener('click', flipCard);
 
-
-const flip = () => {
-    cards.forEach(card=>{card.addEventListener('click',()=> card.classList.add('visible') )})
+  resetBoard();
 }
 
-flip()
+function unflipCards() {
+  lockBoard = true;
 
-// const gameOver = ()=> {
-//     clearInterval(countDown);
-//     document.getElementById('game-over-text').classList.add('visible');
-    
+  setTimeout(() => {
+    firstCard.classList.remove('visible');
+    secondCard.classList.remove('visible');
+
+    resetBoard();
+  }, 1500);
+}
+
+
+
+function checkForMatch() {
+  let image = data.image
+ let isMatch = firstCard.image == secondCard.image;
+
+  isMatch ? disableCards() : unflipCards();
+}
+
+
+function flipCard() {
+  if (lockBoard) return;
+  if (this === firstCard) return;
+
+  this.classList.add('visible');
+
+  if (!hasFlippedCard) {
+    hasFlippedCard = true;
+    firstCard = this;
+
+    return;
+  }
+
+  secondCard = this;
+  checkForMatch();
+}
+
+
+// const flip = () => {
+   
+//     cards.forEach((card) => { card.addEventListener('click', () => card.classList.add('visible')) })
+// console.log()
+// // cards.forEach((card) => { card.addEventListener('click', card.classList.add('visible')  ) })
+
 // }
-//     gameOver()
+
+// flip()
+
+cards.forEach(card => {
+    card.addEventListener("click", flipCard)
+})
