@@ -1,4 +1,5 @@
 let cards = document.querySelectorAll('.card')
+let cardValue = document.querySelectorAll('.card-Value')
 // starting parameters
 // Cards Array, timer
 
@@ -7,6 +8,7 @@ let num = 60;
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
+let Ccard = []
 
 
 // console.log(cards)
@@ -86,7 +88,7 @@ function unflipCards() {
 
 function checkForMatch() {
   
- let isMatch = firstCard === secondCard;
+ let isMatch = 
 
   isMatch ? disableCards() : unflipCards();
 }
@@ -94,7 +96,11 @@ function checkForMatch() {
 
 function flipCard() {
   if (lockBoard) return;
-  if (this === firstCard) return;
+  if (this === firstCard) {
+    Ccard.firstCard.push(firstCard)
+
+    return;
+  }
 
   this.classList.add('visible');
 
@@ -106,6 +112,7 @@ function flipCard() {
   }
 
   secondCard = this;
+  Ccard.push(secondCard)
   checkForMatch();
 }
 
@@ -123,3 +130,5 @@ function flipCard() {
 cards.forEach(card => {
     card.addEventListener("click", flipCard)
 })
+
+console.log(firstCard.cardValue)
