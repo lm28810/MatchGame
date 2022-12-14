@@ -8,7 +8,7 @@ let num = 60;
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
-let Ccard = []
+let Pickedcards = []
 
 
 // console.log(cards)
@@ -88,47 +88,45 @@ function unflipCards() {
 
 function checkForMatch() {
   
- let isMatch = 
-
+  let isMatch = firstCard === secondCard;
   isMatch ? disableCards() : unflipCards();
-}
-
-
-function flipCard() {
-  if (lockBoard) return;
-  if (this === firstCard) {
-    Ccard.firstCard.push(firstCard)
-
-    return;
   }
 
-  this.classList.add('visible');
 
-  if (!hasFlippedCard) {
-    hasFlippedCard = true;
-    firstCard = this;
+  function flipCard() {
+    if (lockBoard) return;
+    if (this === firstCard) {
+    
 
-    return;
-  }
+      return;
+    }
 
-  secondCard = this;
-  Ccard.push(secondCard)
+    this.classList.add('visible');
+
+    if (!hasFlippedCard) {
+      hasFlippedCard = true;
+      firstCard = this;
+
+      return;
+    }
+
+    secondCard = this;
   checkForMatch();
-}
+  }
 
+//cardValue.forEach(card => {firstCard && secondCard === card ? disableCards : unflipCards})
+    
 
-// const flip = () => {
+  // const flip = () => {
    
-//     cards.forEach((card) => { card.addEventListener('click', () => card.classList.add('visible')) })
-// console.log()
-// // cards.forEach((card) => { card.addEventListener('click', card.classList.add('visible')  ) })
+  //     cards.forEach((card) => { card.addEventListener('click', () => card.classList.add('visible')) })
+  // console.log()
+  // // cards.forEach((card) => { card.addEventListener('click', card.classList.add('visible')  ) })
 
-// }
+  // }
 
-// flip()
+  // flip()
 
-cards.forEach(card => {
+  cards.forEach(card => {
     card.addEventListener("click", flipCard)
-})
-
-console.log(firstCard.cardValue)
+  })
