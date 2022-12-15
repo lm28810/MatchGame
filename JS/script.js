@@ -1,5 +1,6 @@
 let cards = document.querySelectorAll('.card')
 let cardValue = document.querySelectorAll('.card-Value')
+let flips = document.getElementById('flips')
 // starting parameters
 // Cards Array, timer
 
@@ -12,6 +13,16 @@ let Pickedcards = []
 
 
 // console.log(cards)
+
+
+function resetCards() {
+  cards.forEach(card => card.classList.remove('visible'))
+  cards.forEach(card => {
+    card.addEventListener("click", flipCard)
+  })
+  
+}
+
 
 
 function resetBoard() {
@@ -37,7 +48,11 @@ let timer = () => {
         t.innerText--;
         if (t.innerText <= 0) {
             clearInterval(countDown);
-            document.getElementById('game-over-text').classList.add('visible');
+          if (document.getElementById('victory-text').classList.contains('visible')) {
+              document.getElementById('game-over-text').classList.remove('visible');
+
+          }else {          document.getElementById('game-over-text').classList.add('visible');
+}
         }
     }, 1000);
 
@@ -55,9 +70,12 @@ const gamestart = () => {
             // delay timer until after overlay disappears
             setTimeout(timer, 2000);
             // reset timer
-            t.innerText = num
+          t.innerText = num;
             // reset flips
-          resetBoard()
+          flips.innerText = 0;
+          shuffle()
+          resetCards()
+          
             // reset matches
         })
     })
@@ -67,8 +85,18 @@ const gamestart = () => {
 gamestart()
 
 function disableCards() {
+  
   firstCard.removeEventListener('click', flipCard);
+  
   secondCard.removeEventListener('click', flipCard);
+  flips.innerHTML++;
+  if (flips.innerHTML >= 8) {
+    document.getElementById('victory-text').classList.add('visible')
+  }
+  console.log(flips.innerHTML)
+
+
+
 
   resetBoard();
 }
@@ -87,17 +115,22 @@ function unflipCards() {
 
 
 function checkForMatch() {
+  // create a loop to see if i === i+1
+  // isMatch = if firstcard = item && secondcard== element
+  let isMatch = firstCard.dataset.image === secondCard.dataset.image
+
+
+  isMatch ? disableCards() : unflipCards(); 
   
-  let isMatch = firstCard === secondCard;
-  isMatch ? disableCards() : unflipCards();
+  //console.log(Pickedcards)
   }
 
 
   function flipCard() {
     if (lockBoard) return;
-    if (this === firstCard) {
+    //console.log(this, 'this')
     
-
+    if (this === firstCard) {
       return;
     }
 
@@ -106,26 +139,25 @@ function checkForMatch() {
     if (!hasFlippedCard) {
       hasFlippedCard = true;
       firstCard = this;
+      Pickedcards.push(firstCard.getAttribute('data-image'))
 
       return;
     }
 
     secondCard = this;
+    Pickedcards.push(secondCard.getAttribute('data-image'))
   checkForMatch();
   }
 
-//cardValue.forEach(card => {firstCard && secondCard === card ? disableCards : unflipCards})
-    
 
-  // const flip = () => {
-   
-  //     cards.forEach((card) => { card.addEventListener('click', () => card.classList.add('visible')) })
-  // console.log()
-  // // cards.forEach((card) => { card.addEventListener('click', card.classList.add('visible')  ) })
 
-  // }
 
-  // flip()
+
+  //find a way to show victory screen when user wins
+  //add match to cards when matched
+
+
+  
 
   cards.forEach(card => {
     card.addEventListener("click", flipCard)
